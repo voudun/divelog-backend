@@ -7,7 +7,7 @@ env:
   matrix:
   - RELEASE=stable COMPOSER_CHANNEL=stable
 addons:
-  ssh_known_hosts: <deploy-host>
+  ssh_known_hosts: 139.162.159.229
 services:
   - postgresql
 before_install:
