@@ -10,8 +10,8 @@ env:
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
   matrix:
     - RELEASE=stable COMPOSER_CHANNEL=stable
-    - RELEASE=dev COMPOSER_CHANNEL=stable
-    - RELEASE=stable COMPOSER_CHANNEL=snapshot
+#    - RELEASE=dev COMPOSER_CHANNEL=stable
+#    - RELEASE=stable COMPOSER_CHANNEL=snapshot
 
 #services:
 #  - postgresql
