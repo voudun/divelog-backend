@@ -7,6 +7,10 @@
 /web/profiles/contrib/
 /web/libraries/
 
+# Ignore deploy keys
+deploy_key
+deploy_key.pub
+
 # Ignore Drupal's file directory
 /web/sites/*/files/
 
