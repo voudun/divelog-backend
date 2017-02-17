@@ -34,6 +34,8 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 /tmp/deploy_key
   - ssh-add /tmp/deploy_key
+# Fix this with capistrano
+  - rm -rf .git .dpl .gitignore .travis.yml LICENSE README.md composer.json composer.lock deploy_key.enc phpunit.xml.dist
 deploy:
   provider: script
   skip_cleanup: true
