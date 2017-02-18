@@ -11,6 +11,9 @@
 deploy_key
 deploy_key.pub
 
+# Ignore Drupal's default directory
+/web/sites/default/
+
 # Ignore Drupal's file directory
 /web/sites/*/files/
 
