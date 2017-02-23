@@ -12,3 +12,4 @@ phpunit.xml.dist
 exclude-rsync.txt
 web/sites/default
 certificates
+
