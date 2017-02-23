@@ -8,8 +8,7 @@ env:
   - RELEASE=stable COMPOSER_CHANNEL=stable
 addons:
   ssh_known_hosts: 139.162.159.229
-services:
-  - mysql
+  mariadb: '10.1'
 before_install:
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - phpenv config-rm xdebug.ini
@@ -18,7 +17,7 @@ before_install:
 install:
   - composer --verbose install
 before_script:
-  - mysql -c 'create database divelog;' -U drupal
+  - mysql -e 'create database divelog;' -U root
 script:
 #  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.1.x-dev; fi;
 #  - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
