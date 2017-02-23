@@ -1,0 +1,14 @@
+.git
+.dpl
+.gitignore
+.travis.yml
+LICENSE
+README.md
+composer.json
+composer.lock
+composer.phar
+deploy_key.enc
+phpunit.xml.dist
+exclude-rsync.txt
+web/sites/default
+certificates

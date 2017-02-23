@@ -31,11 +31,9 @@ before_deploy:
   - eval "$(ssh-agent -s)"
   - chmod 600 /tmp/deploy_key
   - ssh-add /tmp/deploy_key
-# Fix this with capistrano
-  - rm -rf .git .dpl .gitignore .travis.yml LICENSE README.md composer.json composer.lock composer.phar deploy_key.enc phpunit.xml.dist
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -rvaz --delete-after --quiet --exclude=web/sites/default --exclude=certificates $TRAVIS_BUILD_DIR/ deploy@139.162.159.229:/var/www/divelog.scubasys.nl
+  script: rsync -rvaz --delete-after --quiet --exclude-from=exclude-rsync.txt $TRAVIS_BUILD_DIR/ deploy@139.162.159.229:/var/www/divelog.scubasys.nl
   on:
     branch: master
