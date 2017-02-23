@@ -9,7 +9,7 @@ env:
 addons:
   ssh_known_hosts: 139.162.159.229
 services:
-  - postgresql
+  - mysql
 before_install:
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - phpenv config-rm xdebug.ini
@@ -18,7 +18,7 @@ before_install:
 install:
   - composer --verbose install
 before_script:
-  - psql -c 'create database divelog;' -U postgres
+  - mysql -c 'create database divelog;' -U drupal
 script:
 #  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.1.x-dev; fi;
 #  - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
@@ -35,7 +35,7 @@ before_deploy:
   - chmod 600 /tmp/deploy_key
   - ssh-add /tmp/deploy_key
 # Fix this with capistrano
-  - rm -rf .git .dpl .gitignore .travis.yml LICENSE README.md composer.json composer.lock deploy_key.enc phpunit.xml.dist
+  - rm -rf .git .dpl .gitignore .travis.yml LICENSE README.md composer.json composer.lock composer.phar deploy_key.enc phpunit.xml.dist
 deploy:
   provider: script
   skip_cleanup: true
