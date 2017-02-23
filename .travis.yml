@@ -14,10 +14,8 @@ before_install:
   - phpenv config-rm xdebug.ini
   - composer --verbose self-update --$COMPOSER_CHANNEL
   - composer --version
-install:
   - composer --verbose install
-before_script:
-  - mysql -e 'create database divelog;' -U root
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS drupal;'
 script:
 #  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.1.x-dev; fi;
 #  - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
